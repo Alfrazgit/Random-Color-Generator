@@ -1,0 +1,10 @@
+body {
+ background-color: #ffffff;
+ text-align: center;
+ padding-top: 20px;
+}
+
+#lorem {
+  margin: 0 auto;
+  font-size: 1.5rem;
+}

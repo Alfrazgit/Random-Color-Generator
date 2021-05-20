@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Random Color Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+  <div class="btn-group btn-group-lg">
+    <button type="button" name="button" class="btn btn-lg btn-success" onclick="start()">START</button>
+    <button type="button" name="button" class="btn btn-lg btn-primary" onclick="change()">CHANGE</button>
+    <button type="button" name="button" class="btn btn-lg btn-danger" onclick="stop()">STOP</button>
+  </div>
+  
+    <h1 id="heading-1">Color Code</h1>
+
+<div class="container">
+  <p class="well-lg" id="lorem">
+    This website will generate a random color for you every time you click on 'change'.
+    <br> On clicking 'start' it will generate a color every 3 seconds.
+    <br> 'stop' will stop the generation of random colors.
+  </p>
+</div>
+
+
+  </body>
+  <script src="js/app.js" charset="utf-8"></script>
+</html>
