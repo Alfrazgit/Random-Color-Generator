@@ -7,10 +7,13 @@ function start() {
     document.body.style.backgroundColor = heading.innerHTML = '#' +
     Math.floor(Math.random() * 16777216).toString(16);
   }, 3000);
+  $("#lorem").toggle();
+  $(".start_btn").disable();
 }
 
 function stop() {
   clearInterval(color_change);
+  $(".start_btn").enable();
 }
 
 function change() {
@@ -28,5 +31,11 @@ function change() {
 
   heading.innerHTML = '#' + color;
   document.body.style.backgroundColor = heading.innerHTML;
-  $("#lorem").hide();
+  $("#lorem").disable();
 }
+
+$("#text-color-change").click(function () {
+  var p_color = Math.floor(Math.random() * 16777216).toString(16);
+  $("#message-box").css("color", "#" + p_color);
+  $("#text-color-change").html("#" + p_color);
+});

@@ -5,28 +5,47 @@
     <title>Random Color Generator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </head>
   <body>
 
-  <div class="btn-group btn-group-lg">
-    <button type="button" name="button" class="btn btn-lg btn-success" onclick="start()">START</button>
-    <button type="button" name="button" class="btn btn-lg btn-primary" onclick="change()">CHANGE</button>
-    <button type="button" name="button" class="btn btn-lg btn-danger" onclick="stop()">STOP</button>
-  </div>
+    <div class="container info">
+      <p class="well-lg" id="lorem">
+        This website will generate a random color for you every time you click on 'change'.
+        <br> On clicking 'start' it will generate a color every 3 seconds.
+        <br> 'stop' will stop the generation of random colors.
+      </p>
+    </div>    
+
+    <div class="controls">
+      <div class="btn-group btn-group-lg">
+        <button type="button" name="button" class="btn btn-lg btn-success start_btn" onclick="start()">START</button>
+        <button type="button" name="button" class="btn btn-lg btn-primary change_btn" onclick="change()">CHANGE</button>
+        <button type="button" name="button" class="btn btn-lg btn-danger stop_btn" onclick="stop()">STOP</button>
+      </div>    
+      
+      <h1 id="heading-1">Color Code</h1>
+
+    </div>
   
-    <h1 id="heading-1">Color Code</h1>
-
-<div class="container">
-  <p class="well-lg" id="lorem">
-    This website will generate a random color for you every time you click on 'change'.
-    <br> On clicking 'start' it will generate a color every 3 seconds.
-    <br> 'stop' will stop the generation of random colors.
-  </p>
-</div>
-
-
+    <div class="text">
+      <h3 id="text-color-change">Change color of text</h3>
+      <p id="message-box">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis neque neque. 
+        Aliquam elementum commodo lobortis. Vestibulum bibendum sit amet velit eu tincidunt. 
+        Proin eleifend, justo ac luctus auctor, arcu nulla sollicitudin purus, sed rhoncus elit dolor vel est. 
+        Cras sed neque sodales, interdum mauris ut, dictum turpis. 
+        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; 
+        Aenean non lectus elementum, sollicitudin tortor et, fermentum lorem. 
+        Maecenas tristique lacus non erat facilisis pretium. Vivamus finibus accumsan libero ut tempus. 
+        Aliquam ac facilisis purus. Vivamus et eleifend odio, quis dignissim nisi. Vestibulum ante ipsum primis in faucibus.
+      </p>
+    </div>
+  
   </body>
   <script src="js/app.js" charset="utf-8"></script>
 </html>

@@ -1,10 +1,36 @@
 body {
  background-color: #ffffff;
  text-align: center;
- padding-top: 20px;
+ padding-top: 40px;
 }
 
 #lorem {
   margin: 0 auto;
   font-size: 1.5rem;
+}
+
+#heading-1 {
+  margin: 10px 20px;
+}
+
+.controls {
+  margin: 100px 0;
+}
+
+#text-color-change {
+  text-align: left;
+  margin-left: 20px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.text {
+  margin: auto;
+  width: 75%;
+  
+}
+
+#message-box {
+  font-size: 24px;
+  font-family: 'Amatic SC', cursive;
 }
