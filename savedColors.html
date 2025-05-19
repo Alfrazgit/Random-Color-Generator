@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saved Colors</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: #333;
+        color: #fff;
+      }
+
+      .color-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+      }
+
+      .color-tile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      .color-box {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+      }
+
+      .color-code {
+        font-size: 0.9rem;
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="nav navbar navbar-expand-lg navbar-dark bg-dark px-3">
+      <!-- Left: Title -->
+      <div
+        class="navbar-brand font-weight-bold"
+        style="font-family: 'Amatic SC', cursive; font-size: 28px"
+      >
+        <a href="/index.html"> Random Color Generator </a>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+      <h1>Saved Colors</h1>
+      <div class="color-grid"></div>
+    </div>
+    <script>
+      const savedColors = JSON.parse(localStorage.getItem("savedColors")) || [];
+      const grid = document.querySelector(".color-grid");
+
+      savedColors.forEach((color) => {
+        const tile = document.createElement("div");
+        tile.classList.add("color-tile");
+
+        const box = document.createElement("div");
+        box.classList.add("color-box");
+        box.style.backgroundColor = "#" + color;
+
+        const code = document.createElement("div");
+        code.classList.add("color-code");
+        code.textContent = color;
+
+        tile.appendChild(box);
+        tile.appendChild(code);
+        grid.appendChild(tile);
+      });
+    </script>
+  </body>
+</html>

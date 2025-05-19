@@ -1,41 +1,58 @@
-var heading = document.getElementById('heading-1');
-var lorem = $("#lorem");
+var heading = document.getElementById("color-code");
 var color_change;
+var currentColor = null;
+
+function getHexColor() {
+  let color = Math.floor(Math.random() * 16777216).toString(16);
+  currentColor = color;
+  return "#" + color.padStart(6, "0"); // Ensures 6-digit hex code
+}
+
+const getRandomColor = () => {
+  var red = Math.floor(Math.random() * 256)
+    .toString(16)
+    .padStart(2, "0");
+  var green = Math.floor(Math.random() * 256)
+    .toString(16)
+    .padStart(2, "0");
+  var blue = Math.floor(Math.random() * 256)
+    .toString(16)
+    .padStart(2, "0");
+  var color = red + green + blue;
+  currentColor = color;
+  return "#" + color;
+};
+
+function change() {
+  const color = getHexColor(); // Or however you generate colors
+  document.body.style.backgroundColor = color;
+  const colorDisplay = document.getElementById("color-code");
+  colorDisplay.textContent = color;
+  colorDisplay.style.display = "inline-block";
+}
 
 function start() {
-  color_change = setInterval(function() {
-    document.body.style.backgroundColor = heading.innerHTML = '#' +
-    Math.floor(Math.random() * 16777216).toString(16);
-  }, 3000);
-  $("#lorem").toggle();
-  $(".start_btn").disable();
+  interval = setInterval(change, 3000);
+  change();
 }
 
 function stop() {
-  clearInterval(color_change);
-  $(".start_btn").enable();
+  clearInterval(interval);
 }
 
-function change() {
-  var basic_color = parseInt(Math.random() * (1000 - 100) + 100); //makes sober colors
-
-  var red = Math.floor(Math.random() * 256).toString(16); // red color
-  var blue = Math.floor(Math.random() * 256).toString(16); // green color
-  var green = Math.floor(Math.random() * 256).toString(16); // blue color
-  var color = red + green + blue;
-  if (color.toString().length == 5) {
-    color += Math.floor(Math.random() * 16).toString(16);
+function saveBackgroundColor() {
+  if (!currentColor) {
+    alert("Please generate a color first!");
+    return;
   }
-
-  var color2 = Math.floor(Math.random() * 16777216).toString(16); // generates a color at once
-
-  heading.innerHTML = '#' + color;
-  document.body.style.backgroundColor = heading.innerHTML;
-  $("#lorem").disable();
+  const savedColors = JSON.parse(localStorage.getItem("savedColors")) || [];
+  savedColors.push(currentColor);
+  localStorage.setItem("savedColors", JSON.stringify(savedColors));
+  console.log("Color saved:", currentColor, savedColors);
 }
 
-$("#text-color-change").click(function () {
-  var p_color = Math.floor(Math.random() * 16777216).toString(16);
-  $("#message-box").css("color", "#" + p_color);
-  $("#text-color-change").html("#" + p_color);
+$("#text-color-change").click(() => {
+  let p_color = getHexColor();
+  $("#message-box").css("color", p_color);
+  $("#text-color-change").html(p_color);
 });
